@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   #core
-  easy_localization: ^3.0.3
   flutter_riverpod: 2.3.6
   kartal: 3.0.0
 
