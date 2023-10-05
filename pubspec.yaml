@@ -39,6 +39,7 @@ dependencies:
   #core
   flutter_riverpod: 2.3.6
   kartal: 3.0.0
+  equatable: 2.0.5
 
   #firebase
   cloud_firestore: ^4.4.3
