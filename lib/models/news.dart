@@ -1,6 +1,8 @@
-import 'package:equatable/equatable.dart';
 
-class News extends EquatableMixin {
+import 'package:equatable/equatable.dart';
+import 'package:news_app/utility/base/base_firebase_model.dart';
+
+class News extends Equatable with IdModel, BaseFirebaseModel<News>{
  final String? category;
  final String? categoryId;
  final String? title;
@@ -44,7 +46,8 @@ class News extends EquatableMixin {
     };
   }
 
-  factory News.fromJson(Map<String, dynamic> json) {
+  @override
+  News fromJson(Map<String, dynamic> json) {
     return News(
       category: json['category'] as String?,
       categoryId: json['categoryId'] as String?,
