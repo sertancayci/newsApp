@@ -3,5 +3,5 @@ import 'package:flutter/material.dart';
 @immutable
 class StringConstants {
   const StringConstants._();
-  static const String appName = 'My App';
+  static const String appName = 'Newstium';
 }

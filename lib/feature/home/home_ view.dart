@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:kartal/kartal.dart';
+import 'package:kartal/kartal.dart';
 import 'package:news_app/models/news.dart';
 import 'package:news_app/utility/exception/custom_exception.dart';
 
@@ -52,16 +52,19 @@ class _HomeViewState extends State<HomeView> {
                     itemCount: values.length,
                     itemBuilder: (context, index) {
                       return Card(
-                          child: Column(
-                        children: [
-                          Image.network(
-                            values[index]?.backgroundImage ?? '',
-                          ),
-                          Text(
-                            values[index]?.title ?? '',
-                          ),
-                        ],
-                      ),);
+                        child: Column(
+                          children: [
+                            Image.network( 
+                              values[index]?.backgroundImage ?? '',
+                              height: context.dynamicHeight(.1),
+                            ),
+                            Text(
+                              values[index]?.title ?? '',
+                              style: context.textTheme.labelLarge,
+                            ),
+                          ],
+                        ),
+                      );
                     },
                   );
                 } else {
