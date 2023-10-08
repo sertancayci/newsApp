@@ -14,10 +14,10 @@ class SplashView extends ConsumerStatefulWidget {
   const SplashView({super.key});
 
   @override
-  ConsumerState createState() => _SplashViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SplashViewState();
 }
 
-class _SplashViewState extends ConsumerState<SplashView> {
+class _SplashViewState extends ConsumerState<SplashView> with _SplashViewListenMixin {
 
   final splashProvider = StateNotifierProvider<SplashProvider, SplashState>((ref) {
     return SplashProvider();
@@ -32,20 +32,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    ref.listen(splashProvider, (previous, next) {
-      if (next.isRequiredForceUpdate ?? false) {
-        showAboutDialog(context: context);
-        return;
-      }
-      if (next.isRedirectHome != null) {
-        if(next.isRedirectHome == true) {
-          context.navigateToPage(HomeView());
-          // Navigator.of(context).pushNamed('/home');
-        } else {
-          // Navigator.of(context).pushNamed('/onboarding');
-        }
-      }
-    });
+    listenAndNavigate(splashProvider);
     return Scaffold(
       backgroundColor: ColorConstants.purplePrimary,
       body: Center(
@@ -62,5 +49,25 @@ class _SplashViewState extends ConsumerState<SplashView> {
         ),
       ),
     );
+  }
+}
+
+mixin _SplashViewListenMixin on ConsumerState<SplashView> {
+
+  void listenAndNavigate(StateNotifierProvider<SplashProvider, SplashState> provider){
+    ref.listen(provider, (previous, next) {
+      if (next.isRequiredForceUpdate ?? false) {
+        showAboutDialog(context: context);
+        return;
+      }
+      if (next.isRedirectHome != null) {
+        if(next.isRedirectHome == true) {
+          context.navigateToPage(HomeView());
+          // Navigator.of(context).pushNamed('/home');
+        } else {
+          // Navigator.of(context).pushNamed('/onboarding');
+        }
+      }
+    });
   }
 }
