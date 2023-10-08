@@ -6,3 +6,14 @@ class FirebaseCustomException implements Exception {
   String toString() => message;
 
 }
+
+class VersionCustomException implements Exception {
+  final String message;
+  VersionCustomException(this.message);
+
+  @override
+  String toString() {
+    return '$this $message';
+  }
+
+}

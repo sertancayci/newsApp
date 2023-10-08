@@ -5,9 +5,9 @@ enum IconConstants {
   appIcon('app_logo'),
   ;
 
-  final String _iconName;
-  const IconConstants(this._iconName);
+  final String iconName;
+  const IconConstants(this.iconName);
 
-  String get toPng => 'assets/icon/$_iconName.png';
+  String get toPng => '/assets/icon/$iconName.png';
   Image get toImage => Image.asset(toPng);
 }

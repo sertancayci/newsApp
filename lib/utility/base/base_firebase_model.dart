@@ -1,5 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:news_app/utility/exception/custom_exception.dart';
 
 abstract class IdModel {
   String? id;
@@ -16,7 +17,7 @@ abstract class BaseFirebaseModel<T extends IdModel> {
       value.addEntries([MapEntry('id', snapshot.id)]);
       return fromJson(value);
     } else {
-      throw Exception('value is null');
+      throw FirebaseCustomException('$snapshot data is null');
     }
   }
 }
