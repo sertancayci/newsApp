@@ -8,6 +8,6 @@ enum IconConstants {
   final String iconName;
   const IconConstants(this.iconName);
 
-  String get toPng => '/assets/icon/$iconName.png';
+  String get toPng => 'assets/icon/$iconName.png';
   Image get toImage => Image.asset(toPng);
 }

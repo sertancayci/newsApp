@@ -40,7 +40,7 @@ class _SplashViewState extends ConsumerState<SplashView> with _SplashViewListenM
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconConstants.appIcon.toImage,
-
+            // Image.asset("assets/icon/app_logo.png", width: 100, height: 100,),
             Padding(
               padding: context.paddingNormal,
               child: const WavyBoldText(title: StringConstants.appName),
