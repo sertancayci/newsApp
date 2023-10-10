@@ -7,6 +7,7 @@ import 'package:news_app/feature/home/home_%20view.dart';
 import 'package:news_app/feature/splash/splash_view.dart';
 import 'package:news_app/firebase_options.dart';
 import 'package:news_app/initiallize/application_start.dart';
+import 'package:news_app/initiallize/basic_app_theme.dart';
 
 
 Future<void> main() async {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: StringConstants.appName,
       home: AuthenticationView(),
+      theme: AppTheme(context).theme,
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:news_app/firebase_options.dart';
+import 'package:news_app/initiallize/app_cache.dart';
 
 
 @immutable
@@ -22,5 +23,6 @@ class ApplicationStart {
       GoogleProvider(clientId: ''),
     ]);
 
+    await AppCache.instance.setup();
   }
 }

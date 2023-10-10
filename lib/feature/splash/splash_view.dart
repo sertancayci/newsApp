@@ -2,7 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/constants/color_constants.dart';
-import 'package:news_app/constants/image_constants.dart';
+import 'package:news_app/constants/enums/image_constants.dart';
 import 'package:news_app/constants/string_constants.dart';
 import 'package:kartal/kartal.dart';
 import 'package:news_app/feature/home/home_%20view.dart';

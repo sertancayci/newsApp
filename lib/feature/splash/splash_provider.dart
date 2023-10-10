@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:news_app/constants/platform_enum.dart';
+import 'package:news_app/constants/enums/platform_enum.dart';
 import 'package:news_app/models/number_model.dart';
 import 'package:news_app/utility/firebase/firebase_collections.dart';
 import 'package:news_app/utility/version_manager.dart';
