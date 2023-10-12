@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
 import 'package:news_app/constants/string_constants.dart';
 import 'package:news_app/feature/auth/authentication_provider.dart';
+import 'package:news_app/widget/text/subtitle_text.dart';
+import 'package:news_app/widget/text/title_text.dart';
 
 class AuthenticationView extends ConsumerStatefulWidget {
   const AuthenticationView({super.key});
@@ -24,8 +26,15 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    FirebaseAuth.instance.currentUser;
+    checkUser(FirebaseAuth.instance.currentUser);
   }
+
+  void checkUser(User? user) {
+    if (user != null) {
+      ref.read(authProvider.notifier).fetchUserDetail(user);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +42,7 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
         actions: [
           AuthStateChangeAction<SignedIn>((context, state) {
             if (state.user != null) {
-              print('login babbaaa ${state.user}');
+            checkUser(state.user);
             }
           }),
         ],
@@ -42,31 +51,52 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
             padding: const EdgeInsets.only(top: 48.0, left: 16, right: 16),
             child: Center(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    StringConstants.loginTitle,
-                    style: context.textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    StringConstants.loginSubtitle,
-                    style: context.textTheme.titleMedium?.copyWith(),
-                  ),
+                  const _header(),
                   firebase.LoginView(
                     action: firebase.AuthAction.signIn,
-                    actionButtonLabelOverride: "Giriş Yap",
                     showTitle: false,
                     providers: firebase.FirebaseUIAuth.providersFor(
                         FirebaseAuth.instance.app),
                   ),
+                  if (ref.watch(authProvider).isRedirect)
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          StringConstants.continueTheApp,
+                          textAlign: TextAlign.center,
+                          style: context.textTheme.bodySmall
+                              ?.copyWith(decoration: TextDecoration.underline),
+                        ))
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _header extends StatelessWidget {
+  const _header({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const [
+        TitleText(
+          value: StringConstants.loginTitle,
+        ),
+        SubtitleText(
+           value: StringConstants.loginSubtitle,
+        ),
+      ],
     );
   }
 }

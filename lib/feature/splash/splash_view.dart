@@ -5,7 +5,7 @@ import 'package:news_app/constants/color_constants.dart';
 import 'package:news_app/constants/enums/image_constants.dart';
 import 'package:news_app/constants/string_constants.dart';
 import 'package:kartal/kartal.dart';
-import 'package:news_app/feature/home/home_%20view.dart';
+import 'package:news_app/feature/home/home_view.dart';
 import 'package:news_app/feature/splash/splash_provider.dart';
 import 'package:news_app/feature/splash/splash_provider.dart';
 import 'package:news_app/widget/text/wavy_text.dart';
