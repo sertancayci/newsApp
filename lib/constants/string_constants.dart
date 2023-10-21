@@ -15,5 +15,6 @@ class StringConstants {
  static const homeLatest = "Son Haberler";
  static const seeAll = "Tümünü Gör";
  static const search = "Ara";
+ static const dummyTitle = "The simple trick to get rid of dark circles instantly";
 
 }

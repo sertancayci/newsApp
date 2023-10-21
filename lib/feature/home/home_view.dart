@@ -197,7 +197,7 @@ class _RecommendedListView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  static const dummyImage2 = 'https://firebasestorage.googleapis.com/v0/b/news-app-27351.appspot.com/o/simple_trick.png?alt=media&token=8e2e025d-61d3-4fe9-913f-e3e362865bbf';
+  static const dummyImage2 = 'https://firebasestorage.googleapis.com/v0/b/news-app-e3188.appspot.com/o/simple_trick.png?alt=media&token=f80b8bf0-d572-4a85-a899-d49ed385d15f';
 
 
   @override
@@ -212,7 +212,7 @@ class _RecommendedListView extends StatelessWidget {
           child: ListTile(
             contentPadding: EdgeInsets.zero,
             leading: Image.network(dummyImage2, fit: BoxFit.fill,),
-            title: Text('The simple trick to get rid of dark circles instantly'),
+            title: Text(StringConstants.dummyTitle),
             subtitle: Text('Beauty'),
           ),
         );
